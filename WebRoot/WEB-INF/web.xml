@@ -4,10 +4,12 @@
     <!-- 不拦截静态文件 -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
+        <url-pattern>/resource/*</url-pattern>
         <url-pattern>/js/*</url-pattern>
         <url-pattern>/css/*</url-pattern>
         <url-pattern>/images/*</url-pattern>
         <url-pattern>/fonts/*</url-pattern>
+         <url-pattern>/error/*</url-pattern>
     </servlet-mapping>
     
     <!-- 配置字符集 -->
@@ -74,6 +76,6 @@
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/error/500.jsp</location>
+        <location>/error/error-500.html</location>
     </error-page>
 </web-app>
