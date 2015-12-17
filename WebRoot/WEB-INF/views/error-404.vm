@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>404 Error Page - Ace Admin</title>
+
+		<meta name="description" content="500 Error Page" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		#appName()
+		#CSSM(["ACE"])
+	</head>
+
+	<body class="no-skin">
+		
+					<div class="page-content">
+						<!-- /section:settings.box -->
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<!-- #section:pages/error -->
+								<div class="error-container">
+									<div class="well">
+										<h1 class="grey lighter smaller">
+											<span class="blue bigger-125">
+												<i class="ace-icon fa fa-sitemap"></i>
+												404
+											</span>
+											Page Not Found
+										</h1>
+
+										<hr />
+										<h3 class="lighter smaller">
+											We looked everywhere 
+											<i class="ace-icon glyphicon glyphicon-search icon-animated-vertical bigger-125"></i>
+											but we couldn't find it!
+										</h3>
+
+										<div class="space"></div>
+
+										<div>
+											<h4 class="lighter smaller">Meanwhile, try one of the following:</h4>
+
+											<ul class="list-unstyled spaced inline bigger-110 margin-15">
+												<li>
+													<i class="ace-icon fa fa-hand-o-right blue"></i>
+													Read the faq
+												</li>
+
+												<li>
+													<i class="ace-icon fa fa-hand-o-right blue"></i>
+													Give us more info on how this specific error occurred!
+												</li>
+											</ul>
+										</div>
+
+										<hr />
+										<div class="space"></div>
+
+										<div class="center">
+											<a href="javascript:history.back()" class="btn btn-grey">
+												<i class="ace-icon fa fa-arrow-left"></i>
+												Go Back
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<!-- /section:pages/error -->
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+		<!-- basic scripts -->
+
+	#JSM(["jQuery"])
+		
+	</body>
+</html>

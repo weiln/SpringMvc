@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>SpringMvcDemo</title>
+<title>SpringMvc</title>
 <%@include file="/WEB-INF/jsp/include/meta.jsp"%>
 <%@include file="/WEB-INF/jsp/include/easyui.jsp"%>
 </head>

@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>SpringMVCDemo</title>
+<title>SpringMVC</title>
 <%@include file="/WEB-INF/jsp/include/easyui.jsp"%>
 <script type="text/javascript">
 	$(function() {
@@ -39,7 +39,7 @@
     <body class="easyui-layout">  
         <!-- 正上方panel -->  
         <div region="north" style="height:100px;padding:10px;" >
-        	<h2>SpringMVCDemo，<%=request.getSession().getAttribute("user") %></h2>
+        	<h2>SpringMVC，<%=request.getSession().getAttribute("user") %></h2>
         </div>  
         
 		<!-- 左侧菜单 -->

@@ -12,10 +12,10 @@
     <!-- <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" /> -->
     <!-- <import resource="classpath:META-INF/cxf/cxf-servlet.xml" /> -->
 
-    <bean id="UserService" class="com.alibaba.service.UserService" />
+    <bean id="UserService" class="com.elf.service.UserService" />
 
     <!-- 2:通过jaxws:server方式来配置webservice -->
-    <jaxws:server serviceClass="com.alibaba.service.UserService"
+    <jaxws:server serviceClass="com.elf.service.UserService"
         address="/UserService">
         <jaxws:serviceBean>
             <ref bean="UserService" />

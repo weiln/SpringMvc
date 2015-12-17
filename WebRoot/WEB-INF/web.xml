@@ -72,10 +72,10 @@
     </servlet-mapping>
   	<error-page>
         <error-code>404</error-code>
-        <location>/error/404.jsp</location>
+        <location>/error-404</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/error/error-500.html</location>
+        <location>/error-404</location>
     </error-page>
 </web-app>
