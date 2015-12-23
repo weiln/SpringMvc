@@ -14,7 +14,7 @@
 
 	<body class="no-skin">
 		<!-- #section:basics/navbar.layout -->
-		<div id="navbar" class="navbar navbar-default">
+		<div id="navbar" class="navbar navbar-default navbar-collapse">
 			<script type="text/javascript">
 				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
 			</script>
@@ -37,23 +37,28 @@
 							Ace Admin
 						</small>
 					</a>
-				</div>
+				
 
-				<!-- #section:basics/navbar.dropdown -->
-				<div class="navbar-buttons navbar-header pull-right" role="navigation">
+				<!-- #section:basics/navbar.toggle -->
+					<button class="pull-right navbar-toggle navbar-toggle-img collapsed" type="button" data-toggle="collapse" data-target=".navbar-buttons">
+						<span class="sr-only">Toggle user menu</span>
+
+						<img src="/$appName/resource/ace/avatars/avatar2.png" alt="Jason's Photo" />
+					</button>
+				</div>
+				<!-- /section:basics/navbar.dropdown -->
+				<div class="navbar-buttons navbar-header pull-right  collapse navbar-collapse" role="navigation">
 					<ul class="nav ace-nav">
-						<!-- #section:basics/navbar.user_menu -->
-						<li class="light-blue">
+				
+						<li class="light-blue user-min">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="/$appName/resource/ace/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="/$appName/resource/ace/avatars/avatar2.png" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>Welcome,</small>
-									Jason
+									$!{user}
 								</span>
-
 								<i class="ace-icon fa fa-caret-down"></i>
 							</a>
-
 							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 								<li>
 									<a href="#">
@@ -79,12 +84,9 @@
 								</li>
 							</ul>
 						</li>
-
-						<!-- /section:basics/navbar.user_menu -->
 					</ul>
 				</div>
-
-				<!-- /section:basics/navbar.dropdown -->
+				
 			</div><!-- /.navbar-container -->
 		</div>
 

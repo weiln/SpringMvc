@@ -1,4 +1,4 @@
-package com.alibaba.model.easyui;
+package com.elf.model.easyui;
 
 import java.util.List;
 

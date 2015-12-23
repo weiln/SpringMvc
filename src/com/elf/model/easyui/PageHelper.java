@@ -1,4 +1,4 @@
-package com.alibaba.model.easyui;
+package com.elf.model.easyui;
 
 /**
  * easyui的datagrid向后台传递参数使用的model

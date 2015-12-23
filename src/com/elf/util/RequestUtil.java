@@ -22,7 +22,7 @@ public class RequestUtil {
 	private static final Logger logger = LoggerFactory.getLogger(RequestUtil.class);
 	private static final Base64 base64 = new Base64(true);
 	public static final String LAST_PAGE = "com.elf.lastPage";
-    public static final String REDIRECT_HOME = "index";
+    public static final String REDIRECT_HOME = "/";
     
     
     /**

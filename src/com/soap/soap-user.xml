@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE soapMap
+	PUBLIC "-//KINTIGER.com//DTD SOAP Map//EN"
+	"http://www.kintiger.com/dtd/soap-map.dtd">
+<soapMap namespace="user">
+	<typeAlias alias="User"
+		type="com.elf.model.UserResultMessage" />
+	<execute id="findUserByName" parameterClass="java.lang.String" resultClass="User">
+	<![CDATA[
+		<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.elf.com/">
+   			<soapenv:Header/>
+   				<soapenv:Body>
+      				<ser:findUserByName>
+         			<!--Optional:-->
+         			<arg0>$id$</arg0>
+      			</ser:findUserByName>
+   			</soapenv:Body>
+		</soapenv:Envelope>
+	]]>
+	</execute>
+	
+	
+	<execute id="flushCache" parameterClass="java.util.Map">
+	<![CDATA[
+		<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+			<SOAP:Header>
+				<header xmlns="http://schemas.cordys.com/General/1.0/"></header>
+			</SOAP:Header>			
+			<SOAP:Body>
+				<FlushLDAPCache xmlns="http://schemas.cordys.com/1.1/ldap">
+					<dn>$dn$</dn>
+				</FlushLDAPCache>
+			</SOAP:Body>
+		</SOAP:Envelope>
+	]]>
+	</execute>
+
+</soapMap>

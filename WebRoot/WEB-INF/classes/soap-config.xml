@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE soapMapConfig
+	PUBLIC "-//KINTIGER.com//DTD SOAP Map Config//EN"
+	"http://www.kintiger.com/dtd/soap-map-config.dtd">
+<soapMapConfig>
+	<settings useStatementNamespaces="true" enhancementEnabled="true" />
+	
+	<soapMap resource="com/soap/soap-user.xml" />
+</soapMapConfig>

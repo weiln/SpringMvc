@@ -44,4 +44,12 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
     </bean> 
+    
+    
+    <bean id="soapMapClient" class="com.elf.soap.soapmap.spring.SoapMapClientFactoryBean">
+		<property name="configLocation">
+			<value>classpath:soap-config.xml</value>
+		</property>
+	</bean>
+    
 </beans>   
