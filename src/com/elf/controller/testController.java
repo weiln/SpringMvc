@@ -25,6 +25,10 @@ public class testController {
         return "test";
     }
 	
+	/**
+	 * 测试参照ibaits模式发送Soap请求的功能
+	 * @return
+	 */
 	@RequestMapping(value = "/testSoap.htm",method = RequestMethod.GET)
 	public String testSoap(){
 		String  url = "http://8dcp1ngcndxg4gp.dunan.cn:8080/SpringMvc/webservice/UserService";

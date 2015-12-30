@@ -46,7 +46,7 @@
   	<context-param>
     	<param-name>contextConfigLocation</param-name>
     	<param-value>/WEB-INF/config/spring-*.xml
-    				classpath*:applicationContext-server.xml
+    				classpath*:cxf-server.xml
     	</param-value> 	
   	</context-param>
   	<listener>
@@ -76,6 +76,6 @@
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/error-404</location>
+        <location>/error-500</location>
     </error-page>
 </web-app>

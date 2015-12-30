@@ -6,6 +6,8 @@ package com.elf.service;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import org.springframework.cache.annotation.Cacheable;
@@ -18,7 +20,7 @@ import com.elf.model.easyui.DataGrid;
 import com.elf.model.easyui.PageHelper;
 
 /**
- * @author tfj
+ * @author weiln
  * 2014-8-2
  */
 /** 
@@ -32,8 +34,25 @@ import com.elf.model.easyui.PageHelper;
  * Spring针对Ehcache支持的Java源码位于spring-context-support-*.RELEASE-sources.jar中 
  * ---------------------------------------------------------------------------------------------------------- 
  */
-@Service
-@WebService
+
+/**
+ * 
+ * cxf框架 发布webservice几种方式：
+ * 1.在class上添加注解@WebService,这样整个class都会被发布为webservice
+ * 2.在方法上添加注解 @WebMethod,这样这个方法就会被发布成webservice
+ * 
+ * @WebParam 是对webservice方法中的参数进行注释：如没加之前参数名为arg0、arg1……，加在注解后参数名变成注解的名称
+ *		@WebMethod(operationName = "findUserByName")
+ *		public User findUserByName(@WebParam(name = "username")String username)
+ *
+ *cxf发布restful风格的几种方式：
+ *@POST/@GET/@PUT/@DELETE 四种方式
+ *	@Path("/finishProcess") 调用方法名
+ *	@Produces("application/json") 传输的数据格式
+ *	@Consumes("application/x-www-form-urlencoded")
+ */
+@Service("userService")
+
 public class UserService {
 
 	@Resource
@@ -42,7 +61,8 @@ public class UserService {
 	 * @param username
 	 * @return
 	 */
-	public User findUserByName(String username) {
+	@WebMethod(operationName = "findUserByName")
+	public User findUserByName(@WebParam(name = "username")String username) {
 		return userMapper.findUserByName(username);
 	}
 	

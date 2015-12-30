@@ -18,21 +18,6 @@
 		</soapenv:Envelope>
 	]]>
 	</execute>
-	
-	
-	<execute id="flushCache" parameterClass="java.util.Map">
-	<![CDATA[
-		<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
-			<SOAP:Header>
-				<header xmlns="http://schemas.cordys.com/General/1.0/"></header>
-			</SOAP:Header>			
-			<SOAP:Body>
-				<FlushLDAPCache xmlns="http://schemas.cordys.com/1.1/ldap">
-					<dn>$dn$</dn>
-				</FlushLDAPCache>
-			</SOAP:Body>
-		</SOAP:Envelope>
-	]]>
-	</execute>
+
 
 </soapMap>
