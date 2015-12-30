@@ -1,38 +1,38 @@
 #macro(appName)
-#set($appName="SpringMvc")
+#set(${link.contextPath}="SpringMvc")
 #end
 
 #macro(CSSM $libs)
 	#foreach ($key in $libs)
 		#if($key == 'ACE')
-			<link rel="stylesheet" href="/$appName/resource/ace/css/bootstrap.css" />
+			<link rel="stylesheet" href="${link.contextPath}/resource/ace/css/bootstrap.css" />
 			<!-- bootstrap & fontawesome -->
-			<link rel="stylesheet" href="/$appName/resource/ace/css/bootstrap.css" />
-			<link rel="stylesheet" href="/$appName/resource/ace/css/font-awesome.css" />
+			<link rel="stylesheet" href="${link.contextPath}/resource/ace/css/bootstrap.css" />
+			<link rel="stylesheet" href="${link.contextPath}/resource/ace/css/font-awesome.css" />
 
 			<!-- text fonts -->
-			<link rel="stylesheet" href="/$appName/resource/ace/css/ace-fonts.css" />
+			<link rel="stylesheet" href="${link.contextPath}/resource/ace/css/ace-fonts.css" />
 
 			<!-- ace styles -->
-			<link rel="stylesheet" href="/$appName/resource/ace/css/ace.css" />
+			<link rel="stylesheet" href="${link.contextPath}/resource/ace/css/ace.css" />
 
 			<!--[if lte IE 9]>
-			<link rel="stylesheet" href="/$appName/resource/ace/css/ace-part2.css" />
+			<link rel="stylesheet" href="${link.contextPath}/resource/ace/css/ace-part2.css" />
 			<![endif]-->
-			<link rel="stylesheet" href="/$appName/resource/ace/css/ace-rtl.css" />
+			<link rel="stylesheet" href="${link.contextPath}/resource/ace/css/ace-rtl.css" />
 
 			<!--[if lte IE 9]>
-		  	<link rel="stylesheet" href="/$appName/resource/ace/css/ace-ie.css" />
+		  	<link rel="stylesheet" href="${link.contextPath}/resource/ace/css/ace-ie.css" />
 			<![endif]-->
 
 			<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
 			<!--[if lt IE 9]>
-			<script src="/$appName/resource/ace/js/html5shiv.js"></script>
-			<script src="/$appName/resource/ace/js/respond.js"></script>
+			<script src="${link.contextPath}/resource/ace/js/html5shiv.js"></script>
+			<script src="${link.contextPath}/resource/ace/js/respond.js"></script>
 			<![endif]-->
 		#elseif($key == 'bootstrap.datepicker')
-			<link rel="stylesheet" href="/$appName/bootstrap.datepicker/css/datepicker3.css" />
+			<link rel="stylesheet" href="${link.contextPath}/bootstrap.datepicker/css/datepicker3.css" />
 		#end
 	#end
 #end
@@ -42,28 +42,28 @@
 		#if($key == 'jQuery')
 			<!--[if !IE]> -->
 			<script type="text/javascript">
-				window.jQuery || document.write("<script src='/$appName/resource/ace/js/jquery.js'>"+"<"+"/script>");
+				window.jQuery || document.write("<script src='${link.contextPath}/resource/ace/js/jquery.js'>"+"<"+"/script>");
 			</script>
 
 			<!-- <![endif]-->
 
 			<!--[if IE]>
 			<script type="text/javascript">
- 				window.jQuery || document.write("<script src='/$appName/resource/ace/js/jquery1x.js'>"+"<"+"/script>");
+ 				window.jQuery || document.write("<script src='${link.contextPath}/resource/ace/js/jquery1x.js'>"+"<"+"/script>");
 			</script>
 			<![endif]-->
 			<script type="text/javascript">
-				if('ontouchstart' in document.documentElement) document.write("<script src='/$appName/resource/ace/js/jquery.mobile.custom.js'>"+"<"+"/script>");
+				if('ontouchstart' in document.documentElement) document.write("<script src='${link.contextPath}/resource/ace/js/jquery.mobile.custom.js'>"+"<"+"/script>");
 			</script>
 		#elseif($key == 'ACE')
-			<script src="/$appName/resource/ace/js/bootstrap.js"></script>
+			<script src="${link.contextPath}/resource/ace/js/bootstrap.js"></script>
 			
 			<!-- ace scripts -->
-			<script src="/$appName/resource/ace/js/ace/ace.js"></script>
+			<script src="${link.contextPath}/resource/ace/js/ace/ace.js"></script>
 		#elseif($key == 'SideBar')	
-			<script src="/$appName/resource/ace/js/ace/ace.sidebar.js"></script>
-			<script src="/$appName/resource/ace/js/ace/ace.sidebar-scroll-1.js"></script>
-			<script src="/$appName/resource/ace/js/ace/ace.submenu-hover.js"></script>
+			<script src="${link.contextPath}/resource/ace/js/ace/ace.sidebar.js"></script>
+			<script src="${link.contextPath}/resource/ace/js/ace/ace.sidebar-scroll-1.js"></script>
+			<script src="${link.contextPath}/resource/ace/js/ace/ace.submenu-hover.js"></script>
 		#end
 	#end
 #end

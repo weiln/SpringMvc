@@ -1,7 +1,9 @@
 <html>
 <head>
-#appName()
-#CSS()
+//获取多语言
+#springMessage("hello") 
+//获取项目名称
+${link.contextPath}
 </head>
 <body>
 <h2>Hello World!</h2>

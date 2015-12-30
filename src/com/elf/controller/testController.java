@@ -13,18 +13,20 @@ import com.elf.model.User;
 import com.elf.model.UserResultMessage;
 import com.elf.soap.soapmap.client.SoapMapClient;
 import com.elf.soap.soapmap.exception.SoapException;
+import com.elf.util.I18nUtil;
 
 @Controller
 public class testController {
 	@Resource
 	private SoapMapClient soapMapClient;
 	/**
-	 * 跳转到用户表格页面
+	 * 测试
 	 * @return
 	 */
 	@RequestMapping(value = "/test.htm",method = RequestMethod.GET)
     public String userList(Model model) {
 		//int i=1/0;
+		System.out.println(I18nUtil.getTextValue("hello"));
         return "test";
     }
 	
