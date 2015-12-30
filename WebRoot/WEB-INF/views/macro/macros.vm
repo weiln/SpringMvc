@@ -1,6 +1,3 @@
-#macro(appName)
-#set(${link.contextPath}="SpringMvc")
-#end
 
 #macro(CSSM $libs)
 	#foreach ($key in $libs)
