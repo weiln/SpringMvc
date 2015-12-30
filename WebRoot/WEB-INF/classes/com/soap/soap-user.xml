@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE soapMap
+	PUBLIC "-//KINTIGER.com//DTD SOAP Map//EN"
+	"http://www.kintiger.com/dtd/soap-map.dtd">
+<soapMap namespace="user">
+	<typeAlias alias="User"
+		type="com.elf.model.UserResultMessage" />
+	<execute id="findUserByName" parameterClass="java.lang.String" resultClass="User">
+	<![CDATA[
+		<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.elf.com/">
+   			<soapenv:Header/>
+   				<soapenv:Body>
+      				<ser:findUserByName>
+         			<!--Optional:-->
+         			<username>$id$</username>
+      			</ser:findUserByName>
+   			</soapenv:Body>
+		</soapenv:Envelope>
+	]]>
+	</execute>
+
+
+</soapMap>

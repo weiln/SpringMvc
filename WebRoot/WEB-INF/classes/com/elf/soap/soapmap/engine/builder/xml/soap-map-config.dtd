@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!--The root element of an iBATIS SQL Map configuration file.
+This file provides configuration details for DataSources, Data Mapper and other options like thread management.-->
+<!ELEMENT soapMapConfig (properties?, settings?, resultObjectFactory?, typeAlias*, typeHandler*, soapMap+)+>
+<!ATTLIST soapMapConfig
+xmlns:fo CDATA #IMPLIED
+>
+
+<!--The SQL Map can have a single <properties> element that allows a standard Java properties file
+(name=value) to be associated with the SQL Map XML configuration document. By doing so, each named
+value in the properties file can become a variable that can be referred to in the SQL Map configuration file
+and all Data Mapper referenced within. For example, if the properties file contains the following:
+<br><br>
+driver=org.hsqldb.jdbcDriver
+<br><br>
+Then the SQL Map configuration file or each SQL Map referenced by the configuration document can use
+the placeholder ${driver} as a value that will be replaced by org.hsqldb.jdbcDriver. For example:
+<br><br>
+&lt;property name="JDBC.Driver" value="${driver}"/&gt;
+<br><br>
+This comes in handy during building, testing and deployment. It makes it easy to reconfigure your app for
+multiple environments or use automated tools for configuration (e.g. Ant). The properties can be loaded
+from the classpath (use the resource attribute) or from any valid URL (use the url attribute).-->
+<!ELEMENT properties EMPTY>
+<!ATTLIST properties
+resource CDATA #IMPLIED
+url CDATA #IMPLIED
+>
+
+<!-- The <settings> element allows you to configure various options and optimizations for the SqlMapClient
+instance that will be built using this XML file. The settings element and all of its attributes are completely
+optional. -->
+<!ELEMENT settings EMPTY>
+<!ATTLIST settings
+classInfoCacheEnabled (true | false) #IMPLIED
+statementCachingEnabled (true | false) #IMPLIED
+enhancementEnabled (true | false) #IMPLIED
+errorTracingEnabled (true | false) #IMPLIED
+useStatementNamespaces (true | false) #IMPLIED
+forceMultipleResultSetSupport (true | false) #IMPLIED
+maxSessions CDATA #IMPLIED
+maxTransactions CDATA #IMPLIED
+maxRequests CDATA #IMPLIED
+defaultStatementTimeout CDATA #IMPLIED
+>
+
+<!-- Defines a standard Java property. Is used by various elements to define settings. -->
+<!ELEMENT property EMPTY>
+<!ATTLIST property
+name CDATA #REQUIRED
+value CDATA #REQUIRED
+>
+
+<!-- The sqlMap element is used to explicitly include an SQL Map or another SQL Map Configuration file.
+Each SQL Map XML file that is going to be used by this SqlMapClient instance, must be declared. The
+SQL Map XML files will be loaded as a stream resource from the classpath or from a URL. You must
+specify any and all Data Mapper (as many as there are). -->
+<!ELEMENT soapMap EMPTY>
+<!ATTLIST soapMap
+resource CDATA #IMPLIED
+url CDATA #IMPLIED
+>
+
+<!--The typeAlias element simply allows you to specify a shorter name to refer to what is usually a long, fully
+qualified classname. For example:
+<br><br>
+&lt;typeAlias alias="shortname" type="com.long.class.path.Class"/&gt;-->
+<!ELEMENT typeAlias EMPTY>
+<!ATTLIST typeAlias
+alias CDATA #REQUIRED
+type CDATA #REQUIRED
+>
+
+<!--This element is used to declare a custom TypeHandler in iBATIS. This is necessary
+for iBATIS to know how to handle translations between the stated java type and jdbc type.-->
+<!ELEMENT typeHandler EMPTY>
+<!ATTLIST typeHandler
+javaType CDATA #REQUIRED
+jdbcType CDATA #IMPLIED
+callback CDATA #REQUIRED
+>
+
+<!--The resultObjectFactory element allows you to specify a factory class for creating objects resulting from
+the execution of SQL statements. This element is optional – if you don't specify the element, iBATIS will
+use internal mechanisms to create result objects (class.newInstance()).
+<br><br>
+iBATIS creates result objects in these cases:
+<br>
+1. When mapping rows returned from a ResultSet (the most common case)<br>
+2. When you use a nested select statement on a result element in a resultMap. If the nested select
+statement declares a parameterClass, then iBATIS will create and populate an instance of the class
+before executing the nested select<br>
+3. When executing stored procedures – iBATIS will create objects for OUTPUT parameters<br>
+4. When processing nested result maps. If the nested result map is used in conjunction with the
+groupBy support for avoiding N+1 queries, then the object will typically be an implementation of
+type Collection, List, or Set. You can provide custom implementations of these interfaces through
+the result object factory if you wish. In a 1:1 join with a nested result map, then iBATIS will
+create an instance of the specified domain object through this factory.<br>
+<br>
+If you choose to implement a factory, your factory class must implement the interface
+com.ibatis.sqlmap.engine.mapping.result.ResultObjectFactory, and your class must have a public
+default constructor. The ResultObjectFactory interface has two-->
+<!ELEMENT resultObjectFactory (property*)>
+<!ATTLIST resultObjectFactory
+type CDATA #REQUIRED
+>
