@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,9 @@ import com.elf.util.I18nUtil;
 public class testController {
 	@Resource
 	private SoapMapClient soapMapClient;
+	
+	@Resource
+	private MessageSource messageSource;
 	/**
 	 * 测试
 	 * @return
@@ -26,7 +30,8 @@ public class testController {
 	@RequestMapping(value = "/test.htm",method = RequestMethod.GET)
     public String userList(Model model) {
 		//int i=1/0;
-		System.out.println(I18nUtil.getTextValue("hello"));
+		//System.out.println(I18nUtil.getTextValue("hello"));
+		System.out.println(messageSource.getMessage("hello", null,null));
         return "test";
     }
 	
