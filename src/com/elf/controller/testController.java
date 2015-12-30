@@ -1,6 +1,9 @@
 package com.elf.controller;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +16,7 @@ import com.elf.soap.soapmap.exception.SoapException;
 
 @Controller
 public class testController {
-	@Autowired
+	@Resource
 	private SoapMapClient soapMapClient;
 	/**
 	 * 跳转到用户表格页面
@@ -27,11 +30,13 @@ public class testController {
 	
 	/**
 	 * 测试参照ibaits模式发送Soap请求的功能
+	 * 测试缓存
 	 * @return
 	 */
 	@RequestMapping(value = "/testSoap.htm",method = RequestMethod.GET)
+	@Cacheable(value="myCache") 
 	public String testSoap(){
-		String  url = "http://8dcp1ngcndxg4gp.dunan.cn:8080/SpringMvc/webservice/UserService";
+		String  url = "http://8dcp1ngcndxg4gp.dunan.cn:8080/SpringMvc/webservice/userService-ws";
 		String param ="admin";
 		try {
 			UserResultMessage o = (UserResultMessage)soapMapClient.execute(url,"user.findUserByName",param);

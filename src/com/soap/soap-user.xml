@@ -12,7 +12,7 @@
    				<soapenv:Body>
       				<ser:findUserByName>
          			<!--Optional:-->
-         			<arg0>$id$</arg0>
+         			<username>$id$</username>
       			</ser:findUserByName>
    			</soapenv:Body>
 		</soapenv:Envelope>
