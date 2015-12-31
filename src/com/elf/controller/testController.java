@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.elf.model.User;
 import com.elf.model.UserResultMessage;
+import com.elf.service.messageService.MessageService;
 import com.elf.soap.soapmap.client.SoapMapClient;
 import com.elf.soap.soapmap.exception.SoapException;
 import com.elf.util.I18nUtil;
@@ -22,7 +23,8 @@ public class testController {
 	private SoapMapClient soapMapClient;
 	
 	@Resource
-	private MessageSource messageSource;
+	private MessageService messageService;
+	
 	/**
 	 * 测试
 	 * @return
@@ -31,7 +33,8 @@ public class testController {
     public String userList(Model model) {
 		//int i=1/0;
 		//System.out.println(I18nUtil.getTextValue("hello"));
-		System.out.println(messageSource.getMessage("hello", null,null));
+		//System.out.println(messageSource.getMessage("hello", null,null));
+		System.out.println(messageService.getText("hello"));
         return "test";
     }
 	
