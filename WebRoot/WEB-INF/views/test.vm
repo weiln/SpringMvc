@@ -2,8 +2,12 @@
 <head>
 //获取多语言
 #springMessage("hello") 
+<br>
 //获取项目名称
 ${link.contextPath}
+<br>
+//直接读取后台传参
+$!{testid}
 </head>
 <body>
 <h2>Hello World!</h2>

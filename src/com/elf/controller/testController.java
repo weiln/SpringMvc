@@ -3,12 +3,15 @@ package com.elf.controller;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.elf.model.User;
 import com.elf.model.UserResultMessage;
@@ -57,7 +60,46 @@ public class testController {
 		}
 		 return "test";
 	}
-
 	
+	
+	/**
+	 * 测试缓存注解@Cacheable
+	 * @return
+	 */
+	@RequestMapping(value = "/testCacheable.htm",method = RequestMethod.GET)
+	@Cacheable(value="myCache") 
+	public String testCacheable(){
+		System.out.println("没进缓存");
+		return "test";
+	}
+	
+	/**
+	 * 测试缓存注解@CacheEvict
+	 * @return
+	 */
+	@RequestMapping(value = "/testCacheEvict.htm",method = RequestMethod.GET)
+	@CacheEvict(value="myCache") 
+	public String testCacheEvict(){
+		System.out.println("清除缓存");
+		return "test";
+	}
+	
+	/**
+	 * 测试缓存注解@CachePut
+	 * @return
+	 */
+	@RequestMapping(value = "/testCachePut.htm",method = RequestMethod.GET)
+	@CachePut(value="myCache") 
+	public String testCachePut(){
+		System.out.println("测试CachePut");
+		return "test";
+	}
+	
+	@RequestMapping(value = "/testMAV.htm",method = RequestMethod.GET)
+	public ModelAndView testMAV(){
+		ModelAndView mav =new ModelAndView("test");
+		mav.addObject("testid","testId111");
+		return mav;
+	}
 	
 }
