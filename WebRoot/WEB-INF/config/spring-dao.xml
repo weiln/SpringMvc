@@ -6,8 +6,9 @@
        http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     
-    <!-- 该包下的类支持注解，表示会被当作{@code mybatis mapper}处理 配置了之后表示可以自动引入mapper类-->
+    <!-- 该包下的类支持注解，表示会被当作{@code mybatis mapper}处理 配置了之后表示可以自动引入mapper类
     <mybatis:scan base-package="com.elf.dao"/>
+    -->
     <!--引入属性文件 -->
     <context:property-placeholder location="classpath:sysConfig.properties"/>
     
@@ -42,11 +43,10 @@
 
  	<bean id="dataSource-sqlServer" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
       <!-- 基本属性 url、user、password -->
-      <property name="url" value="${sqlServer.url}" />
-      <property name="username" value="${sqlServer.username}" />
-      <property name="password" value="${sqlServer.password}" />
+       <property name="url" value="${sqlServer.url}" />
+	    <property name="username" value="${sqlServer.username}"/>
+	    <property name="password" value="${sqlServer.password}"/>
 
-      <property name="dbType" value = "sqlserver" />
       <!-- 配置初始化大小、最小、最大 -->
       <property name="initialSize" value="5" />
       <property name="minIdle" value="5" />
@@ -78,6 +78,20 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
     </bean> 
+    
+     <bean id="sqlSessionFactory2" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource-sqlServer" />
+    </bean> 
+    
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>  
+        <property name="basePackage" value="com.elf.dao" />  
+    </bean>  
+    
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory2"/>  
+        <property name="basePackage" value="com.elf.dao2" />  
+    </bean>  
     
     
     <bean id="soapMapClient" class="com.elf.soap.soapmap.spring.SoapMapClientFactoryBean">

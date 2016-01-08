@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.elf.model.User;
 import com.elf.model.UserResultMessage;
+import com.elf.service.testService;
 import com.elf.service.messageService.MessageService;
 import com.elf.soap.soapmap.client.SoapMapClient;
 import com.elf.soap.soapmap.exception.SoapException;
@@ -27,6 +28,9 @@ public class testController {
 	
 	@Resource
 	private MessageService messageService;
+	
+	@Resource
+	private testService ts;
 	
 	/**
 	 * 测试
@@ -100,6 +104,12 @@ public class testController {
 		ModelAndView mav =new ModelAndView("test");
 		mav.addObject("testid","testId111");
 		return mav;
+	}
+	
+	@RequestMapping(value = "/testdb.htm",method = RequestMethod.GET)
+	public String testdb(){
+		ts.getUsernameById(10);
+		return "test";
 	}
 	
 }
