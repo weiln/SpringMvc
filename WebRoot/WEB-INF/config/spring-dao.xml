@@ -66,21 +66,31 @@
       <property name="testOnBorrow" value="false" />
       <property name="testOnReturn" value="false" />
 
-      <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+      <!-- 打开PSCache，并且指定每个连接上PSCache的大小 
       <property name="poolPreparedStatements" value="true" />
       <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
-
+	-->
       <!-- 配置监控统计拦截的filters -->
       <property name="filters" value="stat" />
   </bean>
   
+  	<bean id="dataSource-oracle" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+       <property name="url" value="${oracle.url}" />
+	    <property name="username" value="${oracle.username}"/>
+	    <property name="password" value="${oracle.password}"/>
+      <property name="initialSize" value="5" />
+      <property name="minIdle" value="5" />
+      <property name="maxActive" value="50" />
+      <property name="maxWait" value="60000" />
+      <property name="timeBetweenEvictionRunsMillis" value="60000" />
+      <property name="minEvictableIdleTimeMillis" value="300000" />
+      <property name="filters" value="stat" />
+  </bean>
+  
  	<!-- mybatis配置 -->
+ 	<!-- 数据源1配置 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-    </bean> 
-    
-     <bean id="sqlSessionFactory2" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource-sqlServer" />
     </bean> 
     
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
@@ -88,11 +98,18 @@
         <property name="basePackage" value="com.elf.dao" />  
     </bean>  
     
+    <!-- 数据源1配置结束 -->
+    
+    <!-- 数据源2配置 -->
+     <bean id="sqlSessionFactory2" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource-sqlServer" />
+    </bean> 
+    
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory2"/>  
         <property name="basePackage" value="com.elf.dao2" />  
     </bean>  
-    
+     <!-- 数据源2配置结束 -->
     
     <bean id="soapMapClient" class="com.elf.soap.soapmap.spring.SoapMapClientFactoryBean">
 		<property name="configLocation">
